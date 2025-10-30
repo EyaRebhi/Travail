@@ -1,0 +1,83 @@
+1) L’hétérogénéité des données désigne le fait que les informations à intégrer proviennent de sources variées, utilisant des structures, des formats et des significations différentes.
+Dans un projet d’intégration (par ex. fusion de bases ou création d’un entrepôt de données), cela rend difficile la combinaison et la compréhension des données.
+
+2) Types d’hétérogénéité :
+* Structurale :
+Les données n’ont pas la même organisation ou le même modèle.
+→ Exemple : une base relationnelle vs un fichier JSON.
+* Syntaxique :
+Les formats ou représentations diffèrent.
+→ Exemple : une date 2025-10-30 vs 30/10/2025.
+* Sémantique :
+Le sens ou l’interprétation des données varie.
+→ Exemple : le champ “salaire” peut désigner un salaire brut ou net.
+
+3) Importance dans le Web sémantique :
+Dans le Web sémantique, l’objectif est de relier et comprendre automatiquement les données provenant de différentes sources.
+-  Ignorer l’hétérogénéité conduit à des incohérences, des doublons ou des erreurs d’interprétation.
+-  La prise en compte de ces différences permet d’obtenir des données cohérentes, interopérables et exploitables par des machines.
+
+4) Rôle des technologies du Web sémantique (RDF, ontologies…) :
+RDF (Resource Description Framework) : représente les données sous forme de triples (sujet–prédicat–objet), un format universel et extensible.
+Ontologies (OWL, RDFS) : définissent les concepts et leurs relations, précisent la signification des termes et permettent de détecter ou corriger les incohérences.
+→ Ensemble, elles assurent une harmonisation sémantique entre sources de données différentes.
+
+5) Knowledge Graph (KG) et données intégrées :
+Un Knowledge Graph relie des entités (personnes, lieux, produits, etc.) et leurs relations dans une seule structure cohérente.
+Il sert de point central pour regrouper, représenter et explorer les données intégrées provenant de plusieurs systèmes.
+Il facilite la navigation, le raisonnement automatique et l’extraction de nouvelles connaissances.
+
+6) Avantages du format graphe :
+Plus souple qu’une base relationnelle : pas besoin d’un schéma fixe.
+Permet des liens directs entre données sans jointures complexes.
+Favorise l’exploration contextuelle et les inférences logiques (découvrir de nouvelles relations).
+
+7) Contribution aux applications d’apprentissage automatique :
+Les Knowledge Graphs améliorent les modèles d’IA en :
+ajoutant du contexte et des relations sémantiques aux données d’apprentissage,
+aidant à interpréter les résultats (IA explicable),
+complétant les données manquantes ou floues.
+
+8) Interaction entre LLM (grands modèles de langage) et Knowledge Graphs :
+Les LLM peuvent enrichir les graphes (extraire de nouvelles relations à partir de textes, détecter les ambiguïtés).
+Les KG peuvent fournir des faits vérifiés pour guider le LLM (approche RAG — Retrieval-Augmented Generation).
+Ensemble, ils allient compréhension du langage (LLM) et structure logique (KG).
+
+9) Défis de cette combinaison :
+Risque de hallucinations des LLM.
+Difficulté d’alignement entre langage naturel et logique formelle.
+Problèmes de cohérence, provenance et biais.
+
+10) Rôle des LLM dans l’identification, la correction et la complétion des données dans un Knowledge Graph (KG) :
+Les Large Language Models (LLM), comme GPT, peuvent jouer un rôle clé dans la qualité et la complétude des connaissances d’un knowledge graph.
+ a) Identifier les données manquantes ou incohérentes :
+Les LLM peuvent analyser les relations sémantiques entre les entités d’un KG et détecter les incohérences logiques.
+Ex. : Si un KG contient « Albert Einstein → né en 1950 », le LLM peut signaler une erreur en se basant sur ses connaissances contextuelles.
+Ils peuvent comparer le contenu du KG avec des sources textuelles externes (articles, encyclopédies, bases ouvertes comme Wikidata) pour repérer les lacunes.
+ b) Corriger ou reformuler les données ambiguës :
+Les LLM comprennent le langage naturel, donc ils peuvent désambigüiser des entités (par ex. “Paris” → “Paris, France” vs “Paris, Texas”).
+Ils peuvent reformuler ou enrichir les relations floues à partir du contexte :
+“Il a travaillé à l’université” → “Einstein a travaillé à l’Université de Princeton”.
+ c) Compléter automatiquement les relations manquantes :
+Grâce à leurs capacités de raisonnement contextuel et de prédiction sémantique, les LLM peuvent suggérer de nouvelles relations entre entités.
+Ex. : Si le KG indique « Tesla → fondateur → ? », le LLM peut inférer “Elon Musk”.
+En résumé : le LLM agit comme un assistant cognitif du KG — il enrichit, nettoie et valide ses données.
+
+11) La collaboration entre les modèles sémantiques comme les Knowledge Graphs (KG) et les modèles statistiques de langage (LLM) :
+ouvre de nouvelles perspectives pour l’intelligence artificielle en combinant compréhension du sens et raisonnement logique. Les LLM excellent dans la compréhension et la génération du langage naturel, mais manquent souvent de 
+fiabilité et de traçabilité. À l’inverse, les KG offrent une structure claire, cohérente et explicable des connaissances, mais restent limités dans leur capacité à traiter 
+des informations non structurées. Leur intégration permet donc de créer des systèmes hybrides capables de raisonner de manière contextuelle tout en s’appuyant sur des connaissances vérifiables. 
+Cette synergie rend les IA plus fiables, explicables et intelligentes, capables d’apprendre en continu, d’enrichir les bases de connaissances et d’interagir avec l’humain
+de façon plus naturelle et pertinente.
+
+12) Scénarios métiers prometteurs de l’intégration LLM + KG + Web sémantique :
+ a) Santé et médecine :
+Un KG médical (maladies, symptômes, traitements) enrichi par un LLM peut aider à suggérer des diagnostics, détecter des interactions médicamenteuses ou résumer des études cliniques.
+ b) Service client et agents conversationnels : 
+Les LLM comprennent la langue naturelle et utilisent le KG d’une entreprise (produits, politiques, historiques clients) pour fournir des réponses précises, cohérentes et traçables.
+ c) Gouvernements et administration publique :
+Intégration pour analyser et relier les données ouvertes (open data), détecter des incohérences réglementaires, ou générer automatiquement des rapports à partir de bases RDF.
+ d) Recherche scientifique et veille :
+En combinant publications (texte libre) et ontologies (structure sémantique), on peut cartographier les connaissances et identifier de nouvelles corrélations scientifiques.
+ e) E-commerce et recommandation :
+Le KG décrit les produits et leurs attributs, le LLM comprend les préférences exprimées par le client en langage naturel → recommandations personnalisées et explicables.
