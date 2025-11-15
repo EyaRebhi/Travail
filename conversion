@@ -1,0 +1,74 @@
+Étapes de conversion d’un modèle relationnel en RDF :
+
+1) Identifier les tables → Créer les classes RDF
+Chaque table SQL devient une classe dans RDF/OWL.
+* Exemples :
+Table Produit → Classe Produit
+Table Categorie → Classe Categorie
+
+2) Identifier les lignes → Créer des instances (ressources RDF) :
+Chaque ligne d’une table devient une ressource unique (instance) dans RDF.
+On lui donne un identifiant unique (URI) basé sur la clé primaire.
+
+3) Identifier les colonnes → Créer des propriétés :
+Pour chaque colonne :
+- Colonne simple (texte, nombre…)
+→ Propriété littérale
+Exemples : nom, prix, adresse
+- Colonne clé étrangère
+→ Propriété relationnelle (object property)
+Elle relie deux ressources RDF.
+
+4) Définir les relations entre classes :
+Les liens SQL (clé étrangère, relation 1-N, N-N) deviennent :
+- Des relations RDF
+- Entre deux classes
+- Avec un sens (ex : Produit appartient à Catégorie)
+
+5) Déterminer les types de données
+Les valeurs doivent être converties en :
+- Texte
+- Nombre
+- Date
+- Booléen
+Pour pouvoir être représentées correctement dans RDF.
+
+6) Créer un schéma RDF/OWL (optionnel mais conseillé) :
+Définir :
+- Les classes
+- Les propriétés
+- Les relations
+- Les contraintes (domain / range)
+→ Cela permet d’avoir une ontologie propre et réutilisable.
+
+7) Générer les triplets RDF :
+Chaque information devient un triplet :
+Sujet – Prédicat – Objet
+* Exemples :
+Une instance de Produit (sujet)
+A un nom (prédicat)
+« Iphone » (objet)
+Chaque relation SQL devient un lien RDF entre deux ressources.
+
+8) Vérifier la cohérence du graphe :
+Contrôler :
+- Qu’aucune ressource n’est orpheline
+- Que toutes les relations SQL sont bien transformées
+- Que chaque clé primaire → un URI
+- Que chaque clé étrangère → un lien RDF
+
+9) Exporter dans un format RDF :
+Choisir un format :
+- Turtle (le plus lisible)
+- RDF/XML
+- JSON-LD
+- N-Triples
+
+10) (Optionnel) Utiliser un outil de mapping :
+Si tu veux automatiser :
+- R2RML (standard W3C)
+- Ontop
+- D2RQ
+- OpenRefine RDF extension
+
+
